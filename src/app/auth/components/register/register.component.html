@@ -1,0 +1,111 @@
+<!-- Section: Design Block -->
+<section class="background-radial-gradient" style=" background-image: url('../../assets/img/bg1.jpg') ">
+    <div class="overlay"></div>
+      <div class="container px-4 px-md-5 text-center text-lg-start d-flex align-items-center h-100">
+        <div class="row gx-lg-5 align-items-center">
+          <div class="col-lg-6  mb-lg-0  position-relative" style="z-index: 10">
+            <h1 class="my-5 display-5 fw-bold ls-tight position-relative" style=" top: 0px ;color: hsl(218, 81%, 95%);"  @fadetop>
+              Eng. Muhammed Hamdi <br />
+              <span style="color: hsl(218, 81%, 75%)">Excellence is our goal</span>
+            </h1>
+            <p class="mb-4 opacity-70 position-relative" style="color: hsl(218, 81%, 85%); font-size: 22px; line-height: 1.5;" @fadeleft>
+                Register now on the platform of Engineer Mohamed Hamdy
+            </p>
+          </div>
+
+          <div class="right-login col-lg-6 mb-lg-0 position-relative" @fade>
+            <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
+            <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
+
+            <div class="card-login">
+              <div class="card-body px-4 py-5 px-md-5">
+                <form [formGroup]="userForm">
+                  <!-- 2 column grid layout with text inputs for the first and last names -->
+                      <div class="row">
+                              <!-- username input -->
+                                  <div class="form-outline mb-3">
+                                    <label class="form-label" for="form3Example3">User Name</label>
+                                  <input [class.is-valid]="userForm.get('username')!.valid" type="email" id="form3Example3" class="form-control" formControlName="username" placeholder="username"/>
+                                 <div class="alert alert-danger text-center m-0 mt-2 p-0 py-1" *ngIf="userForm.get('username')?.errors != null && userForm.get('username')?.touched">
+                                  <p class="m-0" *ngIf="userForm.get('username')?.errors?.['required'] != null">* user Name Required</p>
+                                 </div>
+                                </div>
+
+                              <!-- Email input -->
+                                  <div class="form-outline mb-3">
+                                    <label class="form-label" for="form3Example3">Email</label>
+                                  <input [class.is-valid]="userForm.get('email')!.valid" type="email" id="form3Example3" class="form-control" formControlName="email" placeholder="E-mail"/>
+                                  <div class="alert alert-danger text-center m-0 mt-2 p-0 py-1" *ngIf="userForm.get('email')?.errors != null && userForm.get('email')?.touched">
+                                    <p class="m-0" *ngIf="userForm.get('email')?.errors?.['required'] != null">* Email Required</p>
+                                    <p class="m-0" *ngIf="userForm.get('email')?.errors?.['email'] != null">* invalid Your Email</p>
+                                   </div>
+                                </div>
+                                  <div class="form-outline mb-3">
+                                    <label class="form-label" for="form3Example3">Your Class</label>
+                                  <select formControlName="className" class="form-control form-select">
+                                    <option value="0" [defaultSelected]="true" disabled>Choose Your Class</option>
+                                    <option value="7a">7A</option>
+                                    <option value="7B">7B</option>
+                                    <option value="7C">7C</option>
+                                    <option value="7D">7D</option>
+                                    <option value="6A">6A</option>
+                                    <option value="6B">6B</option>
+                                    <option value="6C">6C</option>
+                                    <option value="6D">6D</option>
+                                  </select>
+                                  <div class="alert alert-danger text-center m-0 mt-2 p-0 py-1" *ngIf="userForm.get('className')?.errors != null && userForm.get('className')?.touched">
+                                    <p class="m-0" *ngIf="userForm.get('className')?.errors?.['required'] != null">* className Required</p>
+                                   </div>
+                                </div>
+                                  <div class="form-outline mb-3">
+                                    <label class="form-label" for="form3Example3">Image Profile</label>
+                                    <input [class.is-valid]="userForm.get('avataruser')!.valid" (change)="getPathImage($event)" type="file" id="form3Example3" class="form-control" formControlName="avataruser" />
+                                  <div class="alert alert-danger text-center m-0 mt-2 p-0 py-1" *ngIf="userForm.get('avataruser')?.errors != null && userForm.get('avataruser')?.touched">
+                                    <p class="m-0" *ngIf="userForm.get('avataruser')?.errors?.['required'] != null">* avataruser Required</p>
+                                   </div>
+                                </div>
+
+                                  <!-- Password input -->
+                                  <div class="form-outline mb-3">
+                                    <label class="form-label" for="form3Example4">Password</label>
+                                  <input [class.is-valid]="userForm.get('password')!.valid"  type="password" id="form3Example4" class="form-control" formControlName="password" placeholder="Password" />
+                                  <div class="alert alert-danger text-center m-0 mt-2 p-0 py-1" *ngIf="userForm.get('password')?.errors != null && userForm.get('password')?.touched">
+                                    <p class="m-0" *ngIf="userForm.get('password')?.errors?.['required'] != null">* password Required</p>
+                                   </div>
+                                </div>
+                                  <!-- confirmPassword input -->
+                                  <div class="form-outline mb-3">
+                                    <label class="form-label" for="form3Example4">Confirm Password</label>
+                                  <input [class.is-valid]="userForm.value.password === userForm.value.confirmPassword" type="password" id="form3Example4" class="form-control" formControlName="confirmPassword" placeholder="Confirm Password" />
+                                  <div class="alert alert-danger text-center m-0 mt-2 p-0 py-1" *ngIf="userForm.get('confirmPassword')?.errors != null && userForm.get('confirmPassword')?.dirty && userForm.get('confirmPassword')?.touched">
+                                    <p class="m-0" *ngIf="userForm.get('confirmPassword')?.errors?.['required'] != null">* password Required</p>
+                                    <!-- <p class="m-0" *ngIf="userForm.get('confirmPassword')?.value !== userForm.get('password')?.value">* password does not match </p> -->
+                                  </div>
+                                </div>
+
+                                  <div class="form-outline">
+                                     <!-- Submit button -->
+                                    <button [disabled]="userForm.invalid || (userForm.value.password !== userForm.value.confirmPassword)" (click)="submit()"  class="w-100 btn btn-login d-block mb-4">
+                                        Register
+                                    </button>
+                                  </div>
+                      </div>
+              </form>
+
+                                  <!-- Register buttons -->
+                                  <div class="text-center mb-3">
+                                    <div class="form-outline">
+                                      <label class="reg-btn">i have an email , want to
+                                        <button type="button" class="btn btn-info" (click)="routeUrl()">
+                                          Back To Login
+                                        </button>
+                                      </label>
+                                   </div>
+                                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </section>
+    <!-- Section: Design Block -->

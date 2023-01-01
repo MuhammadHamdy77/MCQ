@@ -1,0 +1,61 @@
+<ng-container *ngIf="user?.username">
+    <div class="container">
+            <nav class="navbar bg-nav">
+          <a class="navbar-brand" href="#">
+            <img src="assets/img/logo-brand.png" alt="">
+            <p>MH.EDU</p>
+          </a>
+
+          <div class="nav-top">
+            <div class="translate">
+              <button (click)="changeLang('en')">
+                <img src="assets/img/001-en.png" alt="En Language" title="En Language">
+              </button>
+              <button (click)="changeLang('ar')">
+                <img src="assets/img/002-eg.png" alt="Ar Language" title="Ar Language">
+              </button>
+            </div>
+            <!-- <p class="date">
+              <lord-icon
+                src="https://cdn.lordicon.com/kbtmbyzy.json"
+                trigger="loop"
+                delay="3000"
+                style="width:50px;height:50px">
+              </lord-icon>
+              {{date | date:"d/M/yy, h:mm a"}}</p> -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+          <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasNavbarLabel">{{user?.username}}</h5>
+              <button type="button" class="btn-close2" data-bs-dismiss="offcanvas" aria-label="Close">
+                <i class="fa-solid fa-times"></i>
+              </button>
+            </div>
+            <div class="offcanvas-body">
+              <div class="m-auto" style="width: 50%;">
+                <img style="width: 100px;" class="img-fluid rounded-circle" [src]="user?.avataruser" alt="avataruser">
+              </div>
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item" *ngIf="user?.role == 'doctor'" routerLinkActive="active">
+                  <a class="nav-link" aria-current="page" routerLink="/new-exam"><i class="fas fa-arrow-right"></i> {{"NewExam" | translate }} </a>
+                </li>
+                <li class="nav-item" *ngIf="user?.role == 'doctor'" routerLinkActive="active">
+                  <a class="nav-link" aria-current="page" routerLink="/students"><i class="fas fa-arrow-right"></i> {{"Students" | translate }}</a>
+                </li>
+                <li class="nav-item" routerLinkActive="active">
+                    <a class="nav-link" aria-current="page"  routerLink="/subjects"><i class="fas fa-arrow-right"></i> {{"Subjects" | translate}}</a>
+                </li>
+                <li class="">
+                  <a class="btn btn-logout d-block" (click)="logout()">{{"Logout" | translate}}
+                    <span class="circle"></span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+            </nav>
+    </div>
+</ng-container>

@@ -1,0 +1,65 @@
+<div class="container">
+    <div class="row">
+       <div class="col-12">
+        <div class="blackboard">
+            <div class="top-board">
+                <div class="date">{{date| date}}</div>
+                <h3 class="title-name">{{allSubject?.name}} {{"Exam" | translate }}</h3>
+            </div>
+            <div class="exam">
+                <div  *ngFor="let item of allSubject?.questions ; let i = index" >
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="name-ques"><p>{{i+1}}-</p> <span>{{item.question}} </span></div>
+                        </div>
+                        <div class="col-md-6 col-sm-12 my-2">
+                            <div class="box-answer">
+                                <label>
+                                    <mat-radio-button *ngIf="user?.role == 'users' && !resultText && isExam" value="{{item.answer1}}" (change)="correctAns($event)" color="accent" name="{{i}}" ></mat-radio-button>
+                                    <p>{{item.answer1}} </p>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12 my-2">
+                            <div class="box-answer">
+                                <label>
+                                    <mat-radio-button name="{{i}}"  *ngIf="user?.role == 'users' && !resultText && isExam" value="{{item.answer2}}" (change)="correctAns($event)" color="accent"></mat-radio-button>
+                                    <p>{{item.answer2}} </p>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12 my-2">
+                            <div class="box-answer">
+                                <label>
+                                    <mat-radio-button name="{{i}}" *ngIf="user?.role == 'users' && !resultText && isExam" value="{{item.answer3}}" (change)="correctAns($event)" color="accent"></mat-radio-button>
+                                    <p>{{item.answer3}} </p>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12 my-2">
+                            <div class="box-answer">
+                                <label>
+                                    <mat-radio-button  name="{{i}}" *ngIf="user?.role == 'users' && !resultText && isExam" value="{{item.answer4}}" (change)="correctAns($event)" color="accent"></mat-radio-button>
+                                    <p>{{item.answer4}} </p>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-12 mb-3">
+                            <div class="d-flex justify-content-end">
+                                <button *ngIf="user?.role == 'doctor'" (click)="deleteQue(i)" class="btn btn btn-danger p-1">{{"Delete" | translate }}</button>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+                </div>
+                <div class="result">
+                    <ng-container *ngIf="user?.role == 'users'">
+                        <span class="text-result" *ngIf="resultText  || !isExam">{{total}} / {{allSubject?.questions.length}}</span>
+                    </ng-container>
+                    <button *ngIf="!resultText && user?.role == 'users' && isExam" (click)="getResult()"  class="btn btn-success">{{"Result" | translate }}</button>
+                </div>
+            </div>
+        </div>
+       </div> 
+    </div>
+</div>

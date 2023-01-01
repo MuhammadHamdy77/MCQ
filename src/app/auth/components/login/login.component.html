@@ -1,0 +1,104 @@
+<!-- Section: Design Block -->
+<section class="background-radial-gradient" style=" background-image: url('../../assets/img/bg.jpg') ">
+  <div class="overlay">
+    <div class="container px-4 px-md-5 text-center text-lg-start d-flex align-items-center h-100">
+      <div class="row gx-lg-5 align-items-center">
+        <div class="col-lg-6  mb-lg-0  position-relative" style="z-index: 10">
+          <h1 class="my-5 display-5 fw-bold ls-tight position-relative" style=" top: 0px ;color: hsl(218, 81%, 95%);"  @fadetop>
+            Eng. Muhammed Hamdi <br />
+        <br />
+            <span style="color: hsl(218, 81%, 75%)">Excellence is our goal</span>
+          </h1>
+          <p class="mb-4 opacity-70 position-relative" style="color: hsl(218, 81%, 85%); font-size: 20px; line-height: 1.5;" @fadeleft>
+         Hello There, i'm Eng.Muhammed More than 5 Years of Experience in The Software Engineering
+          </p>
+        </div>
+  
+        <div class="right-login col-lg-6 mb-lg-0 position-relative" @fade>
+          <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
+          <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
+  
+          <div class="card-login">
+            <div class="card-body px-4 py-5 px-md-5">
+              <form [formGroup]="myForm">
+                <!-- 2 column grid layout with text inputs for the first and last names -->
+                    <div class="row">
+                        <div class="col-md-8 d-flex mb-4 is-admin">
+                            <div class="form-group"> 
+                                <label  class="label-check" for="doctors">Teach
+                                  <input type="radio" name="isteach" (change)="roleUser($event)" id="doctors" value="doctor" class="radio-check">
+                                </label>
+                            </div>
+                            <div class="form-group ms-2 active"> 
+                                <label  class="label-check" for="students">Student
+                                  <input checked type="radio" name="isteach" id="students" (change)="roleUser($event)" value="users" class="radio-check">
+                                </label>
+                            </div>
+                        </div>
+
+
+                            <!-- Email input -->
+                                <div class="form-outline mb-3">
+                                  <label class="form-label" for="form3Example3">Email</label>
+                                <input [class.is-valid]="myForm.get('email')!.valid" type="email" id="form3Example3" class="form-control"  formControlName="email"  placeholder="username"/>
+                                <div class="alert alert-danger text-center m-0 mt-2 p-0 py-1" *ngIf="myForm.get('email')?.errors != null && myForm.get('email')?.touched">
+                                  <p class="m-0" *ngIf="myForm.get('email')?.errors?.['required'] != null">* Email Required</p>
+                                  <p class="m-0" *ngIf="myForm.get('email')?.errors?.['email'] != null">* invalid Email</p>
+                                 </div> 
+                              </div>
+                
+                                <div class="form-outline mb-3">
+                                    <label class="form-label" for="form3Example4">Password</label>
+                                  <input [class.is-valid]="myForm.get('password')!.valid" type="password" id="form3Example4" class="form-control" formControlName="password" placeholder="Password" />
+                                  <div class="alert alert-danger text-center m-0 mt-2 p-0 py-1" *ngIf="myForm.get('password')?.errors != null && myForm.get('password')?.touched">
+                                    <p class="m-0" *ngIf="myForm.get('password')?.errors?.['required'] != null">* password Required</p>
+                                  </div> 
+                                 </div> 
+                
+                                <div class="form-outline">
+                                   <!-- Submit button -->
+                                  <button (click)="submit()" class="w-100 btn btn-login d-block mb-4">
+                                    Login
+                                  </button>
+                                </div>
+                        </div>
+                </form>
+                                  
+                                <!-- Register buttons -->
+                                <div class="text-center mb-3">
+                                  <div class="form-outline">
+                                    <label class="reg-btn">do'nt have an email , I want to
+                                      <button type="button" class="btn btn-info" (click)="routeUrl()">
+                                        Register Now
+                                      </button>
+                                    </label>
+                                 </div>
+                                </div>
+                                <div class="text-center">
+                                <p>or sign up with:</p>
+                                <button type="button" class="btn btn-link btn-floating mx-1">
+                                    <i class="fab fa-facebook-f"></i>
+                                </button>
+                
+                                <button type="button" class="btn btn-link btn-floating mx-1">
+                                    <i class="fab fa-google"></i>
+                                </button>
+                
+                                <button type="button" class="btn btn-link btn-floating mx-1">
+                                    <i class="fab fa-twitter"></i>
+                                </button>
+                
+                                <button type="button" class="btn btn-link btn-floating mx-1" routerLink="/register" >
+                                    <i class="fab fa-github"></i>
+                                </button>
+                                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  <!-- Section: Design Block -->
+
+  

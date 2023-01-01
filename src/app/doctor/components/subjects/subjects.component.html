@@ -1,0 +1,22 @@
+<div class="container my-5">
+    <div class="row">
+        <div class="col-sm-12 col-md-3 my-2" *ngFor="let subject of allSubjects; let index = index" routerLink="/exam/{{subject.id}}">
+            <div class="boxes-que">
+                <div class="subjects">
+                    <lord-icon
+                        src="https://cdn.lordicon.com/wloilxuq.json"
+                        trigger="hover"
+                        colors="primary:#0a2e5c,secondary:#e8308c"
+                        style="width:100px;height:100px">
+                    </lord-icon>
+                    <p class="sub-name">{{subject.name}}</p>
+                </div>
+                <div class="btns">
+                    <button *ngIf="user?.role == 'doctor'" class="delete" (click)="deleteSub(index)" >{{"Delete" | translate}}</button>
+                    <button *ngIf="user?.role == 'doctor'" class="view">{{"View" | translate}}</button>
+                    <button *ngIf="user?.role == 'users'" class="start">{{"StartAQuiz" | translate}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+<app-navbar></app-navbar>
+<div class="" dir="ltr">
+    <router-outlet></router-outlet>
+</div>
+
+<div class="spinner-groww" role="status" *ngIf="loader">
+        <lord-icon
+            src="https://cdn.lordicon.com/tvyxmjyo.json"
+            trigger="loop"
+            delay="1000"
+            colors="primary:#16c79e,secondary:#e8308c"
+            style="width:250px;height:250px">
+        </lord-icon>           
+  </div>

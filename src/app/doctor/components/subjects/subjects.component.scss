@@ -1,0 +1,64 @@
+.subjects{
+    text-align: center;
+    box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+    margin: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+    padding: 15px 0;
+    background-color: rgb(255 255 255 / 40%);
+    .sub-name{
+        font-size: 25px;
+        font-weight: 550;
+    }
+}
+// .col-sm-12.col-md-3:nth-child(even) .subjects{
+//     background: hsla(186, 33%, 94%, 1);
+
+// background: linear-gradient(90deg, hsla(186, 33%, 94%, 1) 0%, hsla(216, 41%, 79%, 1) 100%);
+
+// background: -moz-linear-gradient(90deg, hsla(186, 33%, 94%, 1) 0%, hsla(216, 41%, 79%, 1) 100%);
+
+// background: -webkit-linear-gradient(90deg, hsla(186, 33%, 94%, 1) 0%, hsla(216, 41%, 79%, 1) 100%);
+
+// }
+// .col-sm-12.col-md-3:nth-child(odd) .subjects{
+//     background: hsla(11, 82%, 87%, 1);
+
+//     background: linear-gradient(90deg, hsla(11, 82%, 87%, 1) 0%, hsla(299, 85%, 90%, 1) 100%);
+    
+//     background: -moz-linear-gradient(90deg, hsla(11, 82%, 87%, 1) 0%, hsla(299, 85%, 90%, 1) 100%);
+    
+//     background: -webkit-linear-gradient(90deg, hsla(11, 82%, 87%, 1) 0%, hsla(299, 85%, 90%, 1) 100%);
+//     }
+.btns{
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    padding: 20px 0;
+    button{
+        background-color: transparent;
+        border: 0;
+        // padding: 10px 5px;
+        min-width: 60px;
+        border-radius: 5px;
+        font-weight: 550;
+    }
+    button.start{
+        background-color: #ffc107;
+        color: #1c1c1c;
+    }
+    button.view{
+        background-color: #009688;
+        color: #fff;
+    }
+    button.delete{
+        background-color: #e91e63;
+        color: #fff;
+    }
+}
+
+.boxes-que:hover .subjects{
+    transform: translateY(-20px);
+}

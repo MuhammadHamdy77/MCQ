@@ -1,0 +1,83 @@
+body{
+    overflow-x: hidden;
+  }
+  .background-radial-gradient {
+    background-size: 100% 100%;
+    width: 100%;
+    min-height: 800px;
+    position: relative;
+    overflow-x: hidden;
+    padding: 20px 0;
+    }
+    @media(max-width: 992px){
+      .background-radial-gradient {
+        height: 740px;
+      }
+    }
+  .overlay{
+    background-color: rgba(51, 31, 74, 0.7882352941);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  .radio-check{
+    height: 20px;
+    accent-color: #d63384;
+    width: 20px;
+    position: relative;
+    left: 5px;
+  }
+  .label-check{
+    position: relative;
+    font-weight: 500;
+    color: #fdfdfd;
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  
+  .right-login .card-login{
+    background-color: #37416f;
+    box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+    border-radius: 10px;
+    color: #fff;
+  }
+  
+  .btn-link{
+    color: orange;
+  }
+  
+  .btn-login{
+    background-color: var(--bs-pink);
+    color: #fff;
+    font-weight: 600;
+  
+  }
+  
+  
+  .is-admin .form-group{
+      background: #2b3874;
+      border-radius: 5px;
+  }
+  
+  .is-admin .form-group.active{
+    background: #3f51b5;
+  }
+  
+  .reg-btn{
+    display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-weight: 500;
+  }
+  .reg-btn button{
+    padding: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #0e1431;
+  }

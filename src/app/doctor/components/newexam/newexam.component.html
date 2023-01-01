@@ -1,0 +1,115 @@
+<div class="container mt-0">
+    <div class="row">
+        <div class="col-12">
+            
+  <div class="new-exam">
+    <mat-horizontal-stepper linear #stepper [selectedIndex]="stepperIndex">
+        <mat-step label="{{'SubjectName' | translate}}" [completed]="startAdd">
+            <div class="AddSubject mt-4">
+                <div> {{"SubjectName" |translate }} : </div>
+                <mat-form-field appearance="fill" color="warn">
+                    <mat-label>{{"SubjectName" |translate }} </mat-label>
+                    <input matInput type="text" [formControl]="nameSubject" >
+                </mat-form-field>
+                <button class="btn-hm-start"  mat-raised-button matStepperNext (click)="start()">{{"Start" | translate}}</button>
+            </div>
+
+        </mat-step>
+        <mat-step label="{{'questionSub' | translate}} - {{nameSub}}" [completed]="preview">
+            <div class="question mt-4">
+                <form [formGroup]="questionForm">
+                    <mat-form-field appearance="outline" color="warn" class="queiz">
+                        <mat-label>{{"Question" | translate  }}</mat-label>
+                        <input matInput type="text" formControlName="question" >
+                    </mat-form-field>
+
+                <div class="row">
+                        <div class="col-md-6 col-sm-12">
+                        <mat-radio-button value="answer1" (change)="correctAns($event)" color="primary"></mat-radio-button>
+                            <mat-form-field color="warn">
+                                <mat-label>{{"AnswerA" | translate}}</mat-label>
+                                <input matInput type="text" formControlName="answer1" >
+                            </mat-form-field>
+                        </div>
+
+                        <div class="col-md-6 col-sm-12">
+                        <mat-radio-button value="answer2" (change)="correctAns($event)" color="primary"></mat-radio-button>
+                            <mat-form-field color="warn">
+                                <mat-label>{{"AnswerB" | translate}}</mat-label>
+                                <input matInput type="text" formControlName="answer2" >
+                            </mat-form-field>
+                        
+                        </div>
+
+                        <div class="col-md-6 col-sm-12">
+                        <mat-radio-button value="answer3" (change)="correctAns($event)" color="primary"></mat-radio-button>
+                        <mat-form-field color="warn">
+                                <mat-label>{{"AnswerC" | translate}}</mat-label>
+                                <input matInput type="text" formControlName="answer3" >
+                            </mat-form-field>
+                        </div>
+
+                    <div class="col-md-6 col-sm-12">
+                            <mat-radio-button value="answer4" (change)="correctAns($event)" color="primary"></mat-radio-button>
+                            <mat-form-field color="warn">
+                                <mat-label>{{"AnswerD" | translate}}</mat-label>
+                                <input matInput type="text" formControlName="answer4" >
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="questBtn">
+                        <div>
+                            <button mat-raised-button class="btn btn-info" matStepperNext (click)="submit()" disabled="{{questions.length? false: true}}" > {{preview?'View':'Finish'}}</button>
+                            <button class="btn btn btn-danger" matStepperPrevious (click)="deleteQuestion()" >{{"Cancel" | translate}}</button>
+                        </div>
+                        <div>
+                            <button class="btn btn btn-danger" (click)="clearForm()" >{{"Delete" | translate}} </button>
+                            <button class="btn btn-success" [disabled]="questionForm.invalid" (click)="createQuestion()">{{"Save" | translate }}</button>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </mat-step>
+        <mat-step label="{{'Viewquestion' | translate}}" completed="false">
+            <div class="examBox mt-4">
+                <div class="examhead text-center"><h2>{{nameSub}} </h2></div>
+                <div class="quizBox" *ngFor="let que of questions ; let i = index" >
+                    <p class="que-name"><span>Question{{i+1}} </span>. {{que.question}} </p>
+                    <div class="row" dir="ltr">
+                        <div class="col-sm-12">
+                            <div class="answer-que">
+                                <span> A</span>  <p>{{que.answer1}} </p>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="answer-que">
+                                <span> B</span>  <p>{{que.answer2}} </p>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="answer-que">
+                                <span> C</span>  <p>{{que.answer3}} </p>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="answer-que">
+                                <span> D</span>  <p>{{que.answer4}} </p>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="answer-que no-border">
+                                <p class="badge-success p-2">{{"AnswerTrue" | translate}} </p><p>{{que.correctAnswer}} </p>
+                            </div>
+                            <button class="btn btn-danger" (click)="deleteQue(i)" >{{"Delete" | translate}}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </mat-step>
+    </mat-horizontal-stepper>
+  </div>
+        </div>
+    </div>
+</div>
+

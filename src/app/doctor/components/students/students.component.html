@@ -1,0 +1,25 @@
+<div class="container mt-5">
+    <div class="card student-card">
+        <div class="card-body">
+            <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-striped w-100">
+                <thead>
+                  <tr>
+                    <th>{{"ST.Name" | translate}}</th>
+                    <th>{{"Subject" | translate}}</th>
+                    <th>{{"Degree" | translate}}</th>
+                    <th>{{"ClassRoom" | translate}}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let user of dataTable">
+                    <td>{{user?.name}}</td>
+                    <td>{{user?.subjectName}}</td>
+                    <td>{{user?.degree}}</td>
+                    <td>{{user?.className}}</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+        </div>
+    </div>
+</div>
